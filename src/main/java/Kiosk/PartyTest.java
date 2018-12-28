@@ -27,8 +27,19 @@ class PartyTest {
         assertNotEquals(party.getName(),"PSOE");
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void equalsTest() {
+        try {
+            Party pp = new Party("PP");
+            Party psoe = new Party("PSOE");
+            assertEquals(party.equals(pp),true);
+            assertEquals(party.equals(psoe),false);
+            assertEquals(party.equals(null),false);
+            assertEquals(party.equals("PP"),false);
+            assertEquals(party.equals(""),false);
+        } catch (PartyException e) {
+            e.printStackTrace();
+        }
     }
 
     @org.junit.jupiter.api.Test
