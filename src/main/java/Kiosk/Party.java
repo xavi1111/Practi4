@@ -6,7 +6,7 @@ public class Party {
     private final String name;
 
     public Party(String name) throws PartyException{
-        if (!name.equals(null))
+        if (!(name==null))
             this.name = name;
         else
             throw new PartyException("Party name is null");
