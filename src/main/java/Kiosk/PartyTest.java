@@ -47,7 +47,8 @@ class PartyTest {
         assertEquals(party.hashCode(),2560);
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void toStringTest() {
+        assertEquals(party.toString(),"Party{name='PP'}");
     }
 }
