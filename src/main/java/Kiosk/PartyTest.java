@@ -42,8 +42,9 @@ class PartyTest {
         }
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void hashCodeTest() {
+        assertEquals(party.hashCode(),2560);
     }
 
     @org.junit.jupiter.api.Test
