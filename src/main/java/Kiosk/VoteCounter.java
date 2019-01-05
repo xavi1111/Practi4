@@ -1,5 +1,6 @@
 package Kiosk;
 
+import Data.Party;
 import Exceptions.VoteCounterException;
 
 import java.util.Set;
