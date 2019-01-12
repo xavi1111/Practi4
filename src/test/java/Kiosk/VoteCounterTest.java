@@ -38,7 +38,11 @@ class VoteCounterTest {
         assertEquals(partits.getVotesFor(PP),1);
     }
 
-
+    @Test
+    void countNullTest() {
+        partits.countNull();
+        assertEquals(partits.getNulls(), 1);
+    }
 
     @Test
     void countBlankTest() {
