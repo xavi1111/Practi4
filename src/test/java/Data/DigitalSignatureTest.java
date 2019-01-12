@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class DigitalSignatureTest {
     static DigitalSignature firmaTest;
     @BeforeAll
-    static void setParty(){
+    static void setDigitalSignature(){
         try {
             firmaTest = new DigitalSignature("viloc");
         } catch (DigitalSignatureException e) {
@@ -16,7 +16,7 @@ class DigitalSignatureTest {
         }
     }
     @Test
-    void MailConstructorTest () {
+    void DigitalSidnatureConstructorTest () {
         assertThrows(DigitalSignatureException.class,()->{ new DigitalSignature(null);});
     }
     @Test
@@ -38,4 +38,6 @@ class DigitalSignatureTest {
             e.printStackTrace();
         }
     }
+    @Test
+    void hashCodeTest() { assertEquals(firmaTest.hashCode(),112210861); }
 }

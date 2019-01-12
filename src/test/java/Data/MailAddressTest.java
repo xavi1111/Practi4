@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class MailAddressTest {
     static MailAddress address;
     @BeforeAll
-    static void setParty(){
+    static void setMail(){
         try {
             address = new MailAddress("prova@gmail.com");
         } catch (MailException e) {

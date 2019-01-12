@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class NifTest {
     static Nif DNI;
     @BeforeAll
-    static void setParty(){
+    static void setNif(){
         try {
             DNI = new Nif("48055507C");
         } catch (NifException e) {
@@ -17,7 +17,7 @@ class NifTest {
         }
     }
     @Test
-    void PartyConstructorTest ()
+    void NifConstructorTest ()
     {
         assertThrows(NifException.class,()->{ new Nif(null);});
         assertThrows(NifException.class,()->{ new Nif("782139871239384719823479132847132487");});
