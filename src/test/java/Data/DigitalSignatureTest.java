@@ -40,4 +40,9 @@ class DigitalSignatureTest {
     }
     @Test
     void hashCodeTest() { assertEquals(firmaTest.hashCode(),112210861); }
+
+    @Test
+    void toStringTest() {
+        assertEquals(firmaTest.toString(),"Signatura{='viloc'}");
+    }
 }
