@@ -13,6 +13,7 @@ public class VoteCounter {
     private int [] votesForParty;
 
     public VoteCounter(Set<Party> validParties) throws VoteCounterException {
+
         if(validParties.size()!=0){
             this.parties = validParties;
             votesForParty = new int [validParties.size()];
@@ -22,7 +23,9 @@ public class VoteCounter {
     }
 
     public void countParty(Party party){
+
         int partyPosition=0;
+
         for(Party partyCheck : parties){
             if (partyCheck.equals(party)){
                 votesForParty[partyPosition]++;
@@ -65,7 +68,6 @@ public class VoteCounter {
                 }
                 partyPosition++;
             }
-
         }else {
             throw new VoteCounterException("Invalid Party");
         }
