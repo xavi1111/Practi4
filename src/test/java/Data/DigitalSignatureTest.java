@@ -19,5 +19,9 @@ class DigitalSignatureTest {
     void MailConstructorTest () {
         assertThrows(DigitalSignatureException.class,()->{ new DigitalSignature(null);});
     }
-
+    @Test
+    void getSignatureTest() {
+        assertEquals(firmaTest.getSignature(),"viloc");
+        assertNotEquals(firmaTest.getSignature(),"viloc");
+    }
 }
