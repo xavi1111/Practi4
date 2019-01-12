@@ -24,4 +24,9 @@ class NifTest {
         assertThrows(NifException.class,()->{ new Nif("12321c123C");});
         assertThrows(NifException.class,()->{ new Nif("1717171717");});
     }
+    @Test
+    void getNifTest() {
+        assertEquals(DNI.getNif(),"48055507C");
+        assertNotEquals(DNI.getNif(),"nores");
+    }
 }

@@ -15,7 +15,6 @@ public class Nif {
                 List<String> parts = new ArrayList<>();
                 parts.add(NIF.substring(0,8));
                 parts.add(NIF.substring(8,9));
-                System.out.println(parts);
                 try { double d = Double.parseDouble(parts.get(0)); }
                 catch(NumberFormatException nfe) { throw new NifException("Nif incorrecte numeros"); }
                 char[] lletra = parts.get(1).toCharArray();
