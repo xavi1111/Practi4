@@ -11,22 +11,17 @@ public class Nif {
     public Nif (String NIF) throws NifException {
         if (!(NIF == null)){
             this.NIF = NIF;
-            if (this.NIF.length()==10){
+            if (this.NIF.length()==9){
                 List<String> parts = new ArrayList<>();
-                int length = this.NIF.length();
-                for (int i = 0; i < length; i += 9) {
-                    parts.add(NIF.substring(i, Math.min(length, i + 9)));
-                }
-
+                parts.add(NIF.substring(0,8));
+                parts.add(NIF.substring(8,9));
+                System.out.println(parts);
                 try { double d = Double.parseDouble(parts.get(0)); }
-                catch(NumberFormatException nfe) { throw new NifException("Nif incorrecte"); }
-
-                try {
-                    double d = Double.parseDouble(parts.get(0));
-                    throw new NifException("Nif incorrecte");
+                catch(NumberFormatException nfe) { throw new NifException("Nif incorrecte numeros"); }
+                char[] lletra = parts.get(1).toCharArray();
+                if(!Character.isLetter(lletra[0])) {
+                    throw new NifException("Nif incorrecte lletra");
                 }
-                catch(NumberFormatException nfe) { }
-
             }else
                 throw new NifException("Nif must have 10 characters.");
         }
