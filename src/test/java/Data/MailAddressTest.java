@@ -35,7 +35,7 @@ class MailAddressTest {
             assertEquals(address.equals(igual),true);
             assertEquals(address.equals(prova2),false);
             assertEquals(address.equals(null),false);
-            assertEquals(address.equals("PP"),false);
+            assertEquals(address.equals("h@w.com"),false);
             assertEquals(address.equals(""),false);
         } catch (MailException e) {
             e.printStackTrace();

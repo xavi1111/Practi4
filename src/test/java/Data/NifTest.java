@@ -29,4 +29,18 @@ class NifTest {
         assertEquals(DNI.getNif(),"48055507C");
         assertNotEquals(DNI.getNif(),"nores");
     }
+    @Test
+    void equalsTest() {
+        try {
+            Nif igual = new Nif("48055507C");
+            Nif prova2 = new Nif("49359498W");
+            assertEquals(DNI.equals(igual),true);
+            assertEquals(DNI.equals(prova2),false);
+            assertEquals(DNI.equals(null),false);
+            assertEquals(DNI.equals("49359498W"),false);
+            assertEquals(DNI.equals(""),false);
+        } catch (NifException e) {
+            e.printStackTrace();
+        }
+    }
 }
