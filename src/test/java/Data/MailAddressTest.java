@@ -16,5 +16,11 @@ class MailAddressTest {
             e.printStackTrace();
         }
     }
+    @Test
+    void MailConstructorTest () {
+        assertThrows(MailException.class,()->{ new MailAddress(null);});
+    }
+
+
 
 }
