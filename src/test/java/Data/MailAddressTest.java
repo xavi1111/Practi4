@@ -27,5 +27,19 @@ class MailAddressTest {
         assertNotEquals(address.getAddress(),"incorrecte@res.com");
     }
 
+    @Test
+    void equalsTest() {
+        try {
+            MailAddress igual = new MailAddress("prova@gmail.com");
+            MailAddress prova2 = new MailAddress("hola@mon.com");
+            assertEquals(address.equals(igual),true);
+            assertEquals(address.equals(prova2),false);
+            assertEquals(address.equals(null),false);
+            assertEquals(address.equals("PP"),false);
+            assertEquals(address.equals(""),false);
+        } catch (MailException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
