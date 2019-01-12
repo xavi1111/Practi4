@@ -25,9 +25,9 @@ public class MailAddress {
     public int hashCode() {
         return address.hashCode();
     }
-    
+
     @Override
     public String toString() {
-        return "Party{" + "name='" + address + '\'' + '}';
+        return "Mail{" + "address='" + address + '\'' + '}';
     }
 }
