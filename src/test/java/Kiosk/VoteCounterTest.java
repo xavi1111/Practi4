@@ -16,7 +16,7 @@ class VoteCounterTest {
     static Set<Party> partitsTest;
     static Party PP;
     static Party PSOE;
-    static VoteCounter partits;
+    static VoteCounter contadorVots;
     @BeforeAll
     static void setVoteCounter() throws PartyException {
         Party [] partitsArray = new Party[2];
@@ -26,7 +26,7 @@ class VoteCounterTest {
         partitsArray[1]=PSOE;
         partitsTest = new HashSet<Party>(Arrays.asList(partitsArray));
         try {
-            partits = new VoteCounter(partitsTest);
+            contadorVots = new VoteCounter(partitsTest);
         } catch (VoteCounterException e) {
             e.printStackTrace();
         }
@@ -34,24 +34,27 @@ class VoteCounterTest {
 
     @Test
     void countPartyTest() throws VoteCounterException {
-        partits.countParty(PP);
-        assertEquals(partits.getVotesFor(PP),1);
+        contadorVots.countParty(PP);
+        assertEquals(contadorVots.getVotesFor(PP),1);
     }
 
     @Test
     void countNullTest() {
-        partits.countNull();
-        assertEquals(partits.getNulls(), 1);
+        contadorVots.countNull();
+        assertEquals(contadorVots.getNulls(), 1);
     }
 
     @Test
     void countBlankTest() {
-        partits.countBlank();
-        assertEquals(partits.getBlanks(),1);
+        contadorVots.countBlank();
+        assertEquals(contadorVots.getBlanks(),1);
     }
 
     @Test
-    void scrutinizeTest() {
+    void scrutinizeTest() throws VoteCounterException {
+        contadorVots.scrutinize(PSOE);
+        assertEquals(contadorVots.getVotesFor(PSOE),1);
+        assertThrows(VoteCounterException.class, ()-> contadorVots.scrutinize(new Party("DD")));
     }
 
     @Test
