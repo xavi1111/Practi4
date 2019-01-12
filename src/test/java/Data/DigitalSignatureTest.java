@@ -22,6 +22,20 @@ class DigitalSignatureTest {
     @Test
     void getSignatureTest() {
         assertEquals(firmaTest.getSignature(),"viloc");
-        assertNotEquals(firmaTest.getSignature(),"viloc");
+        assertNotEquals(firmaTest.getSignature(),"johny melavo");
+    }
+    @Test
+    void equalsTest() {
+        try {
+            DigitalSignature igual = new DigitalSignature("viloc");
+            DigitalSignature prova2 = new DigitalSignature("marcmova");
+            assertEquals(firmaTest.equals(igual),true);
+            assertEquals(firmaTest.equals(prova2),false);
+            assertEquals(firmaTest.equals(null),false);
+            assertEquals(firmaTest.equals("minion"),false);
+            assertEquals(firmaTest.equals(""),false);
+        } catch (DigitalSignatureException e) {
+            e.printStackTrace();
+        }
     }
 }
