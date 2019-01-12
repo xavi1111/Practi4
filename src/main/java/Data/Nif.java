@@ -33,4 +33,26 @@ public class Nif {
         else
             throw new NifException("Nif is null");
     }
+
+    public String getNif() { return this.NIF; }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Nif nif1 = (Nif) o;
+        return NIF.equals(nif1.NIF);
+    }
+
+    @Override
+    public int hashCode() {
+        return NIF.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "NIF{" + "='" + NIF + '\'' + '}';
+    }
+
+
+
 }
