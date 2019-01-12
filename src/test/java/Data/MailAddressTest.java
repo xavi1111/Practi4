@@ -21,6 +21,11 @@ class MailAddressTest {
         assertThrows(MailException.class,()->{ new MailAddress(null);});
     }
 
+    @Test
+    void getAddressTest() {
+        assertEquals(address.getAddress(),"prova@gmail.com");
+        assertNotEquals(address.getAddress(),"incorrecte@res.com");
+    }
 
 
 }
