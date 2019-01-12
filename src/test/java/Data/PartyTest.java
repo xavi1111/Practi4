@@ -1,6 +1,5 @@
 package Data;
 
-import Data.Party;
 import Exceptions.PartyException;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -19,7 +18,7 @@ public class PartyTest {
     }
     @Test
     void PartyConstructorTest () {
-            assertThrows(PartyException.class,()->{ new Party(null);});
+        assertThrows(PartyException.class,()->{ new Party(null);});
     }
 
     @Test

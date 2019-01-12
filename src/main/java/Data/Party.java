@@ -26,6 +26,8 @@ public class Party {
         return name.hashCode();
     }
 
+
+
     @Override
     public String toString() {
         return "Party{" + "name='" + name + '\'' + '}';
