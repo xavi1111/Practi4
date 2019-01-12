@@ -47,4 +47,8 @@ class MailAddressTest {
         assertEquals(address.hashCode(),-11355639);
     }
 
+    @Test
+    void toStringTest() {
+        assertEquals(address.toString(),"Mail{address='prova@gmail.com'}");
+    }
 }
