@@ -47,4 +47,9 @@ class NifTest {
     void hashCodeTest() {
         assertEquals(DNI.hashCode(),533201555);
     }
+
+    @Test
+    void toStringTest() {
+        assertEquals(DNI.toString(),"NIF{='48055507C'}");
+    }
 }
