@@ -43,4 +43,8 @@ class NifTest {
             e.printStackTrace();
         }
     }
+    @Test
+    void hashCodeTest() {
+        assertEquals(DNI.hashCode(),533201555);
+    }
 }
