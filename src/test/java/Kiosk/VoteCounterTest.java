@@ -46,6 +46,8 @@ class VoteCounterTest {
 
     @Test
     void countBlankTest() {
+        partits.countBlank();
+        assertEquals(partits.getBlanks(),1);
     }
 
     @Test
