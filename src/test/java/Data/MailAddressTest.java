@@ -42,4 +42,9 @@ class MailAddressTest {
         }
     }
 
+    @Test
+    void hashCodeTest() {
+        assertEquals(address.hashCode(),-11355639);
+    }
+
 }
