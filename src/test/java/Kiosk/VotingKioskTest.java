@@ -32,6 +32,13 @@ class ElectoralOrganismForTest implements ElectoralOrganism{
         return null;
     }
 }
+class MailerServiceForTest implements services.MailerService{
+    boolean enviat = false;
+    public void send(MailAddress adreça, DigitalSignature firma){
+        System.out.println("Mail enviat correctament a :" +adreça+". Firma: " + firma);
+        enviat=true;
+    }
+}
 
 class VotingKioskTest {
     static Set<Party> partitsTest;
@@ -43,6 +50,7 @@ class VotingKioskTest {
     static MailAddress adreça;
     static VotingKiosk terminal;
     static  ElectoralOrganismForTest organismeElectoral;
+    static MailerServiceForTest servidorCorreu;
     @BeforeAll
     static void setUp() throws PartyException, NifException, MailException, VoteCounterException {
         Party [] partitsArray = new Party[3];
@@ -58,9 +66,11 @@ class VotingKioskTest {
 
         DNI = new Nif("48055507C");
         adreça = new MailAddress("hola@mon.com");
-        terminal = new VotingKiosk(DNI,adreça,contadorVots);
+        terminal = new VotingKiosk(DNI,contadorVots);
         organismeElectoral = new ElectoralOrganismForTest();
+        servidorCorreu = new MailerServiceForTest();
         terminal.setElectoralOrganism(organismeElectoral);
+        terminal.setMailerService(servidorCorreu);
     }
 
     @Test
@@ -71,6 +81,12 @@ class VotingKioskTest {
         assertEquals(contadorVots.getNulls(),1);
         terminal.vote(new Party(""));
         assertEquals(contadorVots.getBlanks(),1);
+
+    }
+    @Test
+    void sendTest() throws VoteCounterException {
+        terminal.sendeReceipt(adreça);
+        assertTrue(servidorCorreu.enviat);
     }
 
 

@@ -4,6 +4,7 @@ import Data.DigitalSignature;
 import Data.MailAddress;
 import Data.Nif;
 import Data.Party;
+import Exceptions.DigitalSignatureException;
 import Exceptions.VoteCounterException;
 import Services.ElectoralOrganism;
 
@@ -14,15 +15,13 @@ public class VotingKiosk {
 
     static Nif DNI;
     static DigitalSignature Firma;
-    static MailAddress Adreça;
     static VoteCounter contador;
     static ElectoralOrganism organismeElectoral;
     static services.MailerService servidorMail;
 
-    public VotingKiosk(Nif DNI, MailAddress Address, VoteCounter contador)
+    public VotingKiosk(Nif DNI, VoteCounter contador)
     {
         this.DNI = DNI;
-        this.Adreça = Address;
         this.contador = contador;
     }
 
@@ -36,12 +35,11 @@ public class VotingKiosk {
     }
     public void vote(Party party) throws VoteCounterException {
         contador.scrutinize(party);
-        Firma = organismeElectoral.askForDigitalSignature(party);//preguntar kinsella
+        Firma = organismeElectoral.askForDigitalSignature(party);
         organismeElectoral.disableVoter(DNI);
     }
-    public void sendeReceipt(MailAddress address)
-    {
-        servidorMail.send(address,Firma);
+    public void sendeReceipt(MailAddress Adreça) {
+        servidorMail.send(Adreça,Firma);
     }
 }
 
