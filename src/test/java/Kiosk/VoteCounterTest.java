@@ -56,20 +56,4 @@ class VoteCounterTest {
         assertEquals(contadorVots.getVotesFor(PSOE),1);
         assertThrows(VoteCounterException.class, ()-> contadorVots.scrutinize(new Party("DD")));
     }
-
-    @Test
-    void getVotesForTest() {
-    }
-
-    @Test
-    void getNullsTest() {
-    }
-
-    @Test
-    void getBlanksTest() {
-    }
-
-    @Test
-    void getTotalTest() {
-    }
 }

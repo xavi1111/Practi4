@@ -13,7 +13,6 @@ public class VoteCounter {
     private int [] votesForParty;
 
     public VoteCounter(Set<Party> validParties) throws VoteCounterException {
-
         if(validParties.size()!=0){
             this.parties = validParties;
             votesForParty = new int [validParties.size()];
@@ -44,7 +43,7 @@ public class VoteCounter {
     }
 
     public void scrutinize(Party party) throws VoteCounterException {
-        if(party.equals(null)){
+        if(party ==null){
             countNull();
         }else{
             if(party.getName().equals("")){
