@@ -4,7 +4,6 @@ import Data.DigitalSignature;
 import Data.MailAddress;
 import Data.Nif;
 import Data.Party;
-import Exceptions.DigitalSignatureException;
 import Exceptions.VoteCounterException;
 import Services.ElectoralOrganism;
 
